@@ -1,0 +1,15 @@
+index page:
+-search bar 
+-5 recomendations
+
+details page:
+-dropdown menu with hourly/daily
+-min 3 variables per column
+-button press for results
+-result display
+
+settings page:
+-details for query build
+
+favourites component:
+-list of added 
