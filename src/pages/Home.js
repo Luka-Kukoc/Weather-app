@@ -1,17 +1,19 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 var data = require("../gradovi.json")
 
 function Home() {
   const [value, setValue] = useState("");
+  const navigate = useNavigate()
 
   const onChange = (event) => {
     setValue(event.target.value);
   };
 
   const onSearch = (searchTerm) => {
-    setValue(searchTerm);
-    // our api to fetch the search result
-    console.log("search ", searchTerm);
+    const cityLatLong = data.find(item => item.city.toLowerCase() === searchTerm.toLowerCase())
+    navigate("/details",{state:cityLatLong})
+    console.log("search ", cityLatLong);
   };
 
   return (

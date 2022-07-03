@@ -13,3 +13,13 @@ settings page:
 
 favourites component:
 -list of added 
+
+https://api.open-meteo.com/v1/forecast?latitude=50.8371&longitude=4.3676&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_sum,rain_sum&windspeed_unit=ms&precipitation_unit=inch&timezone=Europe%2FBerlin
+
+https://api.open-meteo.com/v1/forecast?latitude=50.8371&longitude=4.3676&hourly=temperature_2m,relativehumidity_2m,cloudcover,cloudcover_low&windspeed_unit=ms&precipitation_unit=inch&timezone=Europe%2FBerlin
+
+https://api.open-meteo.com/v1/forecast?latitude=50.8371&longitude=4.3676&hourly=temperature_2m&windspeed_unit=ms&precipitation_unit=inch&timezone=Europe%2FBerlin
+
+https://api.open-meteo.com/v1/forecast?latitude=50.8371&longitude=4.3676&hourly=temperature_2m&temperature_unit=fahrenheit&windspeed_unit=ms&precipitation_unit=inch&timezone=Europe%2FBerlin
+
+https://api.open-meteo.com/v1/forecast?latitude=50.8371&longitude=4.3676&hourly=temperature_2m&windspeed_unit=ms&precipitation_unit=inch&timezone=Europe%2FBerlinl
