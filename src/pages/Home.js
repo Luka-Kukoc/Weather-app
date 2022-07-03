@@ -1,8 +1,14 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-var data = require("../gradovi.json")
+import Favorites from '../components/Favorites';
+import AppContext from '../AppContext';
+
+var cityList = require("../gradovi.json")
+
 
 function Home() {
+
+  const {data} = useContext(AppContext)
   const [value, setValue] = useState("");
   const navigate = useNavigate()
 
@@ -11,22 +17,22 @@ function Home() {
   };
 
   const onSearch = (searchTerm) => {
-    const cityLatLong = data.find(item => item.city.toLowerCase() === searchTerm.toLowerCase())
+    const cityLatLong = cityList.find(item => item.city.toLowerCase() === searchTerm.toLowerCase())
     navigate("/details",{state:cityLatLong})
-    console.log("search ", cityLatLong);
+    console.log("data.fav ", data.favorites);
   };
 
   return (
     <div className="App">
       <h1>Search</h1>
-
+    <Favorites favoritesList={data.favorites}/>
       <div className="search-container">
         <div className="search-inner">
           <input type="text" value={value} onChange={onChange} />
           <button onClick={() => onSearch(value)}> Search </button>
         </div>
         <div className="dropdown">
-          {data
+          {cityList
             .filter((item) => {
               const searchTerm = value.toLowerCase();
               const fullCityName = item.city.toLowerCase();

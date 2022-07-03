@@ -29,7 +29,7 @@ const Variables = (coordinates) => {
       {(() => {
         if (view === "hourly") {
           return (
-            <div><HourlyView/></div>
+            <div><HourlyView coordinates={coordinates}/></div>
           )
         } else if (view === "daily") {
           return (

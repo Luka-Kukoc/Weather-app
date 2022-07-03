@@ -23,3 +23,6 @@ https://api.open-meteo.com/v1/forecast?latitude=50.8371&longitude=4.3676&hourly=
 https://api.open-meteo.com/v1/forecast?latitude=50.8371&longitude=4.3676&hourly=temperature_2m&temperature_unit=fahrenheit&windspeed_unit=ms&precipitation_unit=inch&timezone=Europe%2FBerlin
 
 https://api.open-meteo.com/v1/forecast?latitude=50.8371&longitude=4.3676&hourly=temperature_2m&windspeed_unit=ms&precipitation_unit=inch&timezone=Europe%2FBerlinl
+
+https://api.open-meteo.com/v1/forecast?latitude=50.8371&longitude=4.3676&hourly=windspeed_10m,windspeed_80m,soil_temperature_0cm,soil_temperature_6cm&windspeed_unit=ms&precipitation_unit=inch&timezone=Europe%2FBerlin
+https://api.open-meteo.com/v1/forecast?latitude=45.1553&longitude=18.0144&hourly=windspeed_10m,windspeed_120m,soil_temperature_0cm,soil_temperature_6cm&windspeed_unit=ms&precipitation_unit=inch&timezone=Europe%2FBerlin

@@ -10,7 +10,7 @@ export function AppProvider({children})  {
             temp: "celsius",
             wind: "kmh",
             percipitation: "mm",
-            timeZone: "UTC",
+            timeZone: "Europe%2FBerlin",
             pastDays: "1"
         }}) 
 
