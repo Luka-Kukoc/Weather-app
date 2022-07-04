@@ -17,23 +17,26 @@ function Home() {
   };
 
   const onSearch = (searchTerm) => {
-      if(!searchTerm) {
-          alert("Please provide correct input")
-      } else {
     const cityLatLong = cityList.find(item => item.city.toLowerCase() === searchTerm.toLowerCase())
-    navigate("/details",{state:cityLatLong})
+        if(cityLatLong) {
+          navigate("/details",{state:cityLatLong})
+      } else {
+        alert("Please provide correct input")
     }
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <h1>Search</h1>
+      <div className='flex bg-sky-500 flex-col items-center justify-center min-h-screen '>
+          <h1 className='m-10 font-mono text-8xl'>Meteo</h1>
+    <div className="bg-sky-500 flex items-center justify-center py-1">
     <Favorites favoritesList={data.favorites}/>
-      <div className="search-container">
+          <div className="search-container">
         <div className="flex items-center">
-          <input type="text"
+          <input type="text" className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
            value={value} onChange={onChange} />
-          <button onClick={() => onSearch(value)
+          <button 
+           className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
+           onClick={() => onSearch(value)
         }> Search </button>
         </div>
         <div className="dropdown">
@@ -52,7 +55,7 @@ function Home() {
             .map((item) => (
               <div
                 onClick={() => onSearch(item.city)}
-                className=""
+                className="p-1 pl-3 text-white bg-blue-600"
                 key={item.city}
               >
                 {item.city}
@@ -60,6 +63,7 @@ function Home() {
             ))}
         </div>
       </div>
+    </div>
     </div>
   );
 

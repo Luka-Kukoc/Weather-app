@@ -12,8 +12,8 @@ const Variables = (coordinates) => {
       setView(event.target.value);
     };
     return (
-    <>  
-      <Box sx={{ minWidth: 120 }}>
+    <div className='bg-sky-500 flex flex-col justify-center items-center'>  
+      <div className='p-10 w-[80vw] sm:w-[60vw]'>
         <FormControl fullWidth>
           <InputLabel >Please select type of View</InputLabel>
           <Select
@@ -25,7 +25,7 @@ const Variables = (coordinates) => {
             <MenuItem value={"daily"}>Daily View</MenuItem>
           </Select>
         </FormControl>
-      </Box>
+      </div>
       {(() => {
         if (view === "hourly") {
           return (
@@ -39,7 +39,7 @@ const Variables = (coordinates) => {
           return 
         }
       })()}
-    </>);
+    </div>);
       
       
 }

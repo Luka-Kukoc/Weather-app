@@ -22,9 +22,13 @@ import AppContext from '../AppContext';
     }
 
     return (
-        <>
-            {values.map((element) => (<div id={element}>{createRows(hourly[element])}</div>))}
-        </>   
+        <div>
+            {values.map((element) => (
+            <div id={element} className='inline-block m-3'>
+                <p>{element}</p>
+                <div className='inline-block'>{createRows(hourly[element])}</div>
+            </div>))}
+        </div>   
         )
 }
 
@@ -105,6 +109,7 @@ const HourlyView = ({coordinates}) => {
           <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
             <FormLabel component="legend">Values</FormLabel>
             <FormGroup>
+            <div className='inline-block'>
               <FormControlLabel
                 control={
                   <Checkbox checked={temperature_2m} onChange={handleChange} name="temperature_2m" id="wc" />
@@ -123,6 +128,8 @@ const HourlyView = ({coordinates}) => {
                 }
                 label="Dewpoint"
               />
+            </div>
+            <div className='inline-block'>
               <FormControlLabel
                 control={
                   <Checkbox checked={cloudcover} onChange={handleChange} name="cloudcover" id="ps" />
@@ -141,6 +148,8 @@ const HourlyView = ({coordinates}) => {
                 }
                 label="Cloudcover (low)"
               />
+              </div>
+              <div className='inline-block'>
               <FormControlLabel
                 control={
                   <Checkbox checked={windspeed_10m} onChange={handleChange} name="windspeed_10m" id="wc" />
@@ -159,6 +168,8 @@ const HourlyView = ({coordinates}) => {
                 }
                 label="Wind speed 80m"
               />
+              </div>
+              <div className='inline-block'>
               <FormControlLabel
                 control={
                   <Checkbox checked={soil_temperature_0cm} onChange={handleChange} name="soil_temperature_0cm" id="ps" />
@@ -177,13 +188,14 @@ const HourlyView = ({coordinates}) => {
                 }
                 label="Soil temp 18cm"
               />
+              </div>
             </FormGroup>
           </FormControl>
         </Box>
         <Button onClick={handleSearch}>Search</Button>
         
         {weatherData.length === 0 && (<div>No data</div>)}
-        {weatherData.length > 0 && (<WeatherData weatherData={weatherData}/>)}
+        {weatherData.length > 0 && (<div className='flex flex-col'><WeatherData weatherData={weatherData}/></div>)}
       </>);
 }
 

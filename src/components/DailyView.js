@@ -22,10 +22,14 @@ const WeatherData = ({weatherData}) => {
     }
 
     return (
-        <>
-            {values.map((element) => (<div id={element}>{createRows(daily[element])}</div>))}
-        </>   
-    )
+        <div className='flex flex-row m-1 p-1'>
+            {values.map((element) => (
+            <div id={element} className='flex flex-col m-3'>
+                <p>{element}</p>
+                <div className='inline-block'>{createRows(daily[element])}</div>
+            </div>))}
+        </div>   
+        )
 }
 
 
@@ -84,16 +88,18 @@ const DailyView = ({coordinates}) => {
       const { weathercode, temperature_2m_max, temperature_2m_min, precipitation_sum, rain_sum, showers_sum } = state;
       return (
         <>
-        <Box sx={{ display: 'flex' }}>
+        <div className='inline-block'>
           <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
             <FormLabel component="legend">Values</FormLabel>
             <FormGroup>
+                <div className='inline-block'>
               <FormControlLabel
                 control={
                   <Checkbox checked={weathercode} onChange={handleChange} name="weathercode" id="wc" />
                 }
                 label="Weather code"
               />
+              
               <FormControlLabel
                 control={
                   <Checkbox checked={temperature_2m_max} onChange={handleChange} name="temperature_2m_max" id='mt'/>
@@ -106,6 +112,8 @@ const DailyView = ({coordinates}) => {
                 }
                 label="Min Temp"
               />
+              </div>
+              <div className='inline-block'>
               <FormControlLabel
                 control={
                   <Checkbox checked={precipitation_sum} onChange={handleChange} name="precipitation_sum" id="ps" />
@@ -124,12 +132,15 @@ const DailyView = ({coordinates}) => {
                 }
                 label="Showers sum"
               />
+              </div>
             </FormGroup>
           </FormControl>
-        </Box>
-        <Button onClick={handleSearch}>Search</Button>
+        </div>
+        <div className='m-5'>
+            <Button onClick={handleSearch}>Search</Button>
+        </div>
         {weatherData.length === 0 && (<div>No data</div>)}
-        {weatherData.length > 0 && (<WeatherData weatherData={weatherData}/>)}
+        {weatherData.length > 0 && (<div className='flex flex-col'><WeatherData weatherData={weatherData}/></div>)}
       </>);
 }
 
