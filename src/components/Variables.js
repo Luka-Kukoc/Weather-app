@@ -15,7 +15,7 @@ const Variables = (coordinates) => {
     <>  
       <Box sx={{ minWidth: 120 }}>
         <FormControl fullWidth>
-          <InputLabel >View Type</InputLabel>
+          <InputLabel >Please select type of View</InputLabel>
           <Select
             value={view}
             label="View"
@@ -36,9 +36,7 @@ const Variables = (coordinates) => {
             <div><DailyView coordinates={coordinates}/></div>
           )
         } else {
-          return (
-            <div>Please select type of View</div>
-          )
+          return 
         }
       })()}
     </>);

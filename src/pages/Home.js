@@ -17,19 +17,24 @@ function Home() {
   };
 
   const onSearch = (searchTerm) => {
+      if(!searchTerm) {
+          alert("Please provide correct input")
+      } else {
     const cityLatLong = cityList.find(item => item.city.toLowerCase() === searchTerm.toLowerCase())
     navigate("/details",{state:cityLatLong})
-    console.log("data.fav ", data.favorites);
+    }
   };
 
   return (
-    <div className="App">
+    <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <h1>Search</h1>
     <Favorites favoritesList={data.favorites}/>
       <div className="search-container">
-        <div className="search-inner">
-          <input type="text" value={value} onChange={onChange} />
-          <button onClick={() => onSearch(value)}> Search </button>
+        <div className="flex items-center">
+          <input type="text"
+           value={value} onChange={onChange} />
+          <button onClick={() => onSearch(value)
+        }> Search </button>
         </div>
         <div className="dropdown">
           {cityList
@@ -47,7 +52,7 @@ function Home() {
             .map((item) => (
               <div
                 onClick={() => onSearch(item.city)}
-                className="dropdown-row"
+                className=""
                 key={item.city}
               >
                 {item.city}

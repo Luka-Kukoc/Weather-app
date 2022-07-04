@@ -14,21 +14,18 @@ import AppContext from '../AppContext';
 
 const WeatherData = ({weatherData}) => {
     
-    const {daily, daily_units} =  weatherData[0].data
-    console.log("daily", daily)
-    console.log("units", daily_units)
+    const {daily} =  weatherData[0].data
 
     const values = Object.keys(daily)
     const createRows = (prop) => {
-        return(prop.map(value => <p1>{value}</p1>))
+        return(prop.map(value => <p>{value}</p>))
     }
 
     return (
-     <>
-        {values.map((element) => (<div id={element}>{createRows(daily[element])}</div>))}
-        
+        <>
+            {values.map((element) => (<div id={element}>{createRows(daily[element])}</div>))}
         </>   
-        )
+    )
 }
 
 
@@ -37,7 +34,6 @@ const WeatherData = ({weatherData}) => {
 const DailyView = ({coordinates}) => {
     
     const {data} = useContext(AppContext)
-    console.log("context", data)
 
     const [weatherData, setWeatherData] = useState([])
 
@@ -73,8 +69,6 @@ const DailyView = ({coordinates}) => {
     {   const selected = queryBuilder(state)
         
         const query = `https://api.open-meteo.com/v1/forecast?latitude=${coordinates.coordinates.lat}&longitude=${coordinates.coordinates.lng}&daily=${selected}` + unitQuery(data)
-        console.log("search",selected)
-        console.log("query", query)
         const weather = await axios.get(query)
         setWeatherData([weather])
     }  
@@ -87,7 +81,6 @@ const DailyView = ({coordinates}) => {
         });
       };
       
-    console.log("weather data", weatherData)
       const { weathercode, temperature_2m_max, temperature_2m_min, precipitation_sum, rain_sum, showers_sum } = state;
       return (
         <>
@@ -135,8 +128,7 @@ const DailyView = ({coordinates}) => {
           </FormControl>
         </Box>
         <Button onClick={handleSearch}>Search</Button>
-        {/* <WeatherData weatherData={weatherData}/> */}
-        {weatherData.length === 0 && (<div>NO data</div>)}
+        {weatherData.length === 0 && (<div>No data</div>)}
         {weatherData.length > 0 && (<WeatherData weatherData={weatherData}/>)}
       </>);
 }

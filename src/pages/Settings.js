@@ -4,7 +4,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import AppContext from '../AppContext';
 import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
@@ -92,7 +92,6 @@ const Settings = () => {
         </Select>
       </FormControl>
     </Box>
-    <Button onClick={() => setPercipitation("inch")}>Set percp</Button>
     <Link to={"/"}>Home</Link>
     <Button onClick={clearFavourites}>Clear favorites</Button>
     </>

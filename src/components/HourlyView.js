@@ -9,25 +9,21 @@ import { useState, useContext } from 'react';
 import { Button } from '@mui/material';
 import axios from 'axios';
 import AppContext from '../AppContext';
-/* 
-temp, rel hum, dewpoint, cloudcower, cloudcover high, low,
- wind speed, wind speed, wind speed, soil temp 0 6 18 */
+
 
  const WeatherData = ({weatherData}) => {
     
-    const {hourly, hourly_units} =  weatherData[0].data
-    console.log("hourly", hourly)
-    console.log("units", hourly_units)
+    const {hourly} =  weatherData[0].data
+    
 
     const values = Object.keys(hourly)
     const createRows = (prop) => {
-        return(prop.map(value => <p1>{value}</p1>))
+        return(prop.map(value => <p>{value}</p>))
     }
 
     return (
-     <>
-        {values.map((element) => (<div id={element}>{createRows(hourly[element])}</div>))}
-        
+        <>
+            {values.map((element) => (<div id={element}>{createRows(hourly[element])}</div>))}
         </>   
         )
 }
@@ -35,7 +31,6 @@ temp, rel hum, dewpoint, cloudcower, cloudcover high, low,
 
 const HourlyView = ({coordinates}) => {
     const {data} = useContext(AppContext)
-    console.log("item", data)
 
     const [weatherData, setWeatherData] = useState([])
 
@@ -76,8 +71,7 @@ const HourlyView = ({coordinates}) => {
         else 
     {    const selected = queryBuilder(state)
         const query = `https://api.open-meteo.com/v1/forecast?latitude=${coordinates.coordinates.lat}&longitude=${coordinates.coordinates.lng}&hourly=${selected}` + unitQuery(data)
-        console.log("search",selected)
-        console.log("query", query)
+    
         const weather = await axios.get(query)
         setWeatherData([weather])
     }  
@@ -90,7 +84,6 @@ const HourlyView = ({coordinates}) => {
         });
       };
       
-    console.log("weather data", weatherData)
       const { 
           temperature_2m, 
           relativehumidity_2m, 
@@ -188,8 +181,8 @@ const HourlyView = ({coordinates}) => {
           </FormControl>
         </Box>
         <Button onClick={handleSearch}>Search</Button>
-        {/* <WeatherData weatherData={weatherData}/> */}
-        {weatherData.length === 0 && (<div>NO data</div>)}
+        
+        {weatherData.length === 0 && (<div>No data</div>)}
         {weatherData.length > 0 && (<WeatherData weatherData={weatherData}/>)}
       </>);
 }
