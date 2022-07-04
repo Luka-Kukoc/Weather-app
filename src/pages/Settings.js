@@ -28,7 +28,7 @@ const Settings = () => {
                     Settings
                 </div>
                 <div className='float-right flex flex-wrap items-center text-base justify-center'>
-                    <Link to={"/"}><House fontSize="large" sx={{color: "#2563EB"}}/></Link>
+                    <Link to={"/Weather-app"}><House fontSize="large" sx={{color: "#2563EB"}}/></Link>
                 </div>
             </div>
             <div className='flex flex-col w-[80vw]  m-5'>

@@ -19,7 +19,7 @@ function Home() {
   const onSearch = (searchTerm) => {
     const cityLatLong = cityList.find(item => item.city.toLowerCase() === searchTerm.toLowerCase())
         if(cityLatLong) {
-          navigate("/details",{state:cityLatLong})
+          navigate("/Weather-app/details",{state:cityLatLong})
       } else {
         alert("Please provide correct input")
     }

@@ -10,9 +10,9 @@ function App() {
   <AppProvider>
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Home/>} />
-      <Route path="details" element={<Details/>} />
-      <Route path="settings" element={<Settings/>} />
+      <Route path="/Weather-app" element={<Home/>} />
+      <Route path="/Weather-app/details" element={<Details/>} />
+      <Route path="/Weather-app/settings" element={<Settings/>} />
     </Routes>
   </BrowserRouter>
   </AppProvider>

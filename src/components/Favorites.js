@@ -40,7 +40,7 @@ const Favorites = ({favoritesList}) => {
           <h3 className="mt-20 text-4xl font-semibold text-white">
             Favorites
           </h3>
-          {favoritesList?.map(element => (<div className='p-1' key={element.city}><Button variant="contained" fullWidth={true} onClick={() => navigate("/details",{state:element})}>{element.city}</Button></div>))}
+          {favoritesList?.map(element => (<div className='p-1' key={element.city}><Button variant="contained" fullWidth={true} onClick={() => navigate("/Weather-app/details",{state:element})}>{element.city}</Button></div>))}
         </div>
       </>)
 }
